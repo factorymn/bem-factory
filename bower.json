@@ -1,0 +1,14 @@
+{
+  "name": "bem-factory",
+  "version": "0.0.1",
+  "description": "",
+  "bugs": "",
+  "ignore": [
+    ".bem/cache",
+    "node_modules",
+    "libs"
+  ],
+  "dependencies": {
+    "bem-components": "git://github.com/bem/bem-components#v2"
+  }
+}
