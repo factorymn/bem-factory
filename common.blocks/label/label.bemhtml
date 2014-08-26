@@ -1,0 +1,6 @@
+block('label')(
+    tag()('label'),
+    attrs()(function() {
+        return this.extend(applyNext(), { 'for' : this.ctx.id });
+    })
+);
