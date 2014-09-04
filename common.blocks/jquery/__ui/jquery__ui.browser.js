@@ -1,5 +1,5 @@
 modules.define(
-    'jquery-ui',
+    'jquery__ui',
     ['loader_type_js', 'jquery'],
     function(provide, loader, $) {
         typeof $.ui !== 'undefined'?
