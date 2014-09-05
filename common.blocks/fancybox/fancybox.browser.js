@@ -132,9 +132,9 @@ modules.define('fancybox', ['jquery'], function(provide, $) {
                 image    : '<img class="fancybox-image" src="{ href }" alt="" />',
                 iframe   : '<iframe id="fancybox-frame{ rnd }" name="fancybox-frame{ rnd }" class="fancybox-iframe" frameborder="0" vspace="0" hspace="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen' + (IE ? ' allowtransparency="true"' : '') + '></iframe>',
                 error    : '<p class="fancybox-error">The requested content cannot be loaded.<br/>Please try again later.</p>',
-                closeBtn : '<a title="Close" class="fancybox-item fancybox-close" href="javascript :;"></a>',
-                next     : '<a title="Next" class="fancybox-nav fancybox-next" href="javascript :;"><span></span></a>',
-                prev     : '<a title="Previous" class="fancybox-nav fancybox-prev" href="javascript :;"><span></span></a>'
+                closeBtn : '<a title="Close" class="fancybox-item fancybox-close" href="javascript:;"></a>',
+                next     : '<a title="Next" class="fancybox-nav fancybox-next" href="javascript:;"><span></span></a>',
+                prev     : '<a title="Previous" class="fancybox-nav fancybox-prev" href="javascript:;"><span></span></a>'
             },
 
             // Properties for each animation type
@@ -756,7 +756,7 @@ modules.define('fancybox', ['jquery'], function(provide, $) {
         },
 
         isImage : function(str) {
-            return isString(str) && str.match(/(^data :image\/.*,)|(\.(jp(e|g|eg)|gif|png|bmp|webp|svg)((\?|#).*)?$)/i);
+            return isString(str) && str.match(/(^data:image\/.*,)|(\.(jp(e|g|eg)|gif|png|bmp|webp|svg)((\?|#).*)?$)/i);
         },
 
         isSWF : function(str) {
@@ -986,7 +986,7 @@ modules.define('fancybox', ['jquery'], function(provide, $) {
             // This helps IE
             $(coming.wrap).bind('onReset', function() {
                 try {
-                    $(this).find('iframe').hide().attr('src', '//about :blank').end().empty();
+                    $(this).find('iframe').hide().attr('src', '//about:blank').end().empty();
                 } catch (e) { }
             });
 
@@ -1112,7 +1112,7 @@ modules.define('fancybox', ['jquery'], function(provide, $) {
                 break;
 
                 case 'swf' :
-                    content = '<object id="fancybox-swf" classid="clsid :D27CDB6E-AE6D-11cf-96B8-444553540000" width="100%" height="100%"><param name="movie" value="' + href + '"></param>';
+                    content = '<object id="fancybox-swf" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="100%" height="100%"><param name="movie" value="' + href + '"></param>';
                     embed   = '';
 
                     $.each(current.swf, function(name, val) {
@@ -1505,8 +1505,8 @@ modules.define('fancybox', ['jquery'], function(provide, $) {
                 wPadding = current.wPadding,
                 viewport = F.getViewport();
 
-            if(!orig && current.isDom && element.is(' :visible')) {
-                orig = element.find('img :first');
+            if(!orig && current.isDom && element.is(':visible')) {
+                orig = element.find('img:first');
 
                 if(!orig.length) {
                     orig = element;
@@ -1911,7 +1911,7 @@ modules.define('fancybox', ['jquery'], function(provide, $) {
                 break;
             }
 
-            title[ (opts.position === 'top' ? 'prependTo'  : 'appendTo') ](target);
+            title[ (opts.position === 'top' ? 'prependTo' : 'appendTo') ](target);
         }
     };
 
@@ -1954,7 +1954,7 @@ modules.define('fancybox', ['jquery'], function(provide, $) {
             that.unbind('click.fb-start').bind('click.fb-start', run);
 
         } else {
-            D.undelegate(selector, 'click.fb-start').delegate(selector + ' :not(\'.fancybox-item, .fancybox-nav\')', 'click.fb-start', run);
+            D.undelegate(selector, 'click.fb-start').delegate(selector + ':not(\'.fancybox-item, .fancybox-nav\')', 'click.fb-start', run);
         }
 
         this.filter('[data-fancybox-start=1]').trigger('click');
@@ -1969,7 +1969,7 @@ modules.define('fancybox', ['jquery'], function(provide, $) {
         if( $.scrollbarWidth === undefined ) {
             // http ://benalman.com/projects/jquery-misc-plugins/#scrollbarwidth
             $.scrollbarWidth = function() {
-                var parent = $('<div style="width :50px;height :50px;overflow :auto"><div/></div>').appendTo('body'),
+                var parent = $('<div style="width:50px;height:50px;overflow:auto"><div/></div>').appendTo('body'),
                     child  = parent.children(),
                     width  = child.innerWidth() - child.height( 99 ).innerWidth();
 
@@ -1981,7 +1981,7 @@ modules.define('fancybox', ['jquery'], function(provide, $) {
 
         if( $.support.fixedPosition === undefined ) {
             $.support.fixedPosition = (function() {
-                var elem  = $('<div style="position :fixed;top :20px;"></div>').appendTo('body'),
+                var elem  = $('<div style="position:fixed;top:20px;"></div>').appendTo('body'),
                     fixed = ( elem[0].offsetTop === 20 || elem[0].offsetTop === 15 );
 
                 elem.remove();
