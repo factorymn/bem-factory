@@ -7,7 +7,7 @@ module.exports = {
         forin : true,
         immed : true,
         loopfunc : true,
-        maxdepth : 4,
+        maxdepth : 5,
         noarg : true,
         noempty : true,
         onecase : true,
