@@ -1,5 +1,3 @@
-/* global modules :false */
-
 modules.define('fancybox', ['jquery'], function(provide, $) {
 
     'use strict';
@@ -182,8 +180,8 @@ modules.define('fancybox', ['jquery'], function(provide, $) {
         },
 
         //Current state
-        group    : { }, // Selected group
-        opts     : { }, // Group options
+        group    : {}, // Selected group
+        opts     : {}, // Group options
         previous : null,  // Previous element
         coming   : null,  // Element being loaded
         current  : null,  // Currently loaded element
@@ -206,8 +204,8 @@ modules.define('fancybox', ['jquery'], function(provide, $) {
         imgPreload : null,
 
         // Some collections
-        transitions : { },
-        helpers     : { },
+        transitions : {},
+        helpers     : {},
 
         /*
          *  Static methods
@@ -219,7 +217,7 @@ modules.define('fancybox', ['jquery'], function(provide, $) {
             }
 
             if(!$.isPlainObject(opts)) {
-                opts = { };
+                opts = {};
             }
 
             // Close if already active
@@ -234,7 +232,7 @@ modules.define('fancybox', ['jquery'], function(provide, $) {
 
             // Recheck if the type of each element is `object` and set content type (image, ajax, etc)
             $.each(group, function(i, element) {
-                var obj = { },
+                var obj = {},
                     href,
                     title,
                     content,
@@ -338,11 +336,11 @@ modules.define('fancybox', ['jquery'], function(provide, $) {
             });
 
             // Extend the defaults
-            F.opts = $.extend(true, { }, F.defaults, opts);
+            F.opts = $.extend(true, {}, F.defaults, opts);
 
             // All options are merged recursive except keys
             if(opts.keys !== undefined) {
-                F.opts.keys = opts.keys ? $.extend({ }, F.defaults.keys, opts.keys) : false;
+                F.opts.keys = opts.keys ? $.extend({}, F.defaults.keys, opts.keys) : false;
             }
 
             F.group = group;
@@ -531,7 +529,7 @@ modules.define('fancybox', ['jquery'], function(provide, $) {
                 } else {
                     wrap.css(pos);
 
-                    current.pos = $.extend({ }, current.dim, pos);
+                    current.pos = $.extend({}, current.dim, pos);
                 }
             }
         },
@@ -747,7 +745,7 @@ modules.define('fancybox', ['jquery'], function(provide, $) {
             if(obj.helpers) {
                 $.each(obj.helpers, function(helper, opts) {
                     if(opts && F.helpers[helper] && $.isFunction(F.helpers[helper][event])) {
-                        F.helpers[helper][event]($.extend(true, { }, F.helpers[helper].defaults, opts), obj);
+                        F.helpers[helper][event]($.extend(true, {}, F.helpers[helper].defaults, opts), obj);
                     }
                 });
             }
@@ -764,7 +762,7 @@ modules.define('fancybox', ['jquery'], function(provide, $) {
         },
 
         _start : function(index) {
-            var coming = { },
+            var coming = {},
                 obj,
                 href,
                 type,
@@ -778,7 +776,7 @@ modules.define('fancybox', ['jquery'], function(provide, $) {
                 return false;
             }
 
-            coming = $.extend(true, { }, F.opts, obj);
+            coming = $.extend(true, {}, F.opts, obj);
 
             // Convert margin and padding properties to array - top, right, bottom, left
             margin  = coming.margin;
@@ -957,7 +955,7 @@ modules.define('fancybox', ['jquery'], function(provide, $) {
 
             F.showLoading();
 
-            F.ajaxLoad = $.ajax($.extend({ }, coming.ajax, {
+            F.ajaxLoad = $.ajax($.extend({}, coming.ajax, {
                 url : coming.href,
                 error : function(jqXHR, textStatus) {
                     if(F.coming && textStatus !== 'abort') {
@@ -987,7 +985,7 @@ modules.define('fancybox', ['jquery'], function(provide, $) {
             $(coming.wrap).bind('onReset', function() {
                 try {
                     $(this).find('iframe').hide().attr('src', '//about:blank').end().empty();
-                } catch (e) { }
+                } catch (e) {}
             });
 
             if(coming.iframe.preload) {
@@ -1222,7 +1220,7 @@ modules.define('fancybox', ['jquery'], function(provide, $) {
                             origHeight = body.outerHeight(true);
                         }
 
-                    } catch (e) { }
+                    } catch (e) {}
                 }
 
             } else if(current.autoWidth || current.autoHeight) {
@@ -1471,8 +1469,8 @@ modules.define('fancybox', ['jquery'], function(provide, $) {
             $('.fancybox-wrap').trigger('onReset').remove();
 
             $.extend(F, {
-                group  : { },
-                opts   : { },
+                group  : {},
+                opts   : {},
                 router : false,
                 current   : null,
                 isActive  : false,
@@ -1498,7 +1496,7 @@ modules.define('fancybox', ['jquery'], function(provide, $) {
             var current  = F.current,
                 element  = current.element,
                 orig     = current.orig,
-                pos      = { },
+                pos      = {},
                 width    = 50,
                 height   = 50,
                 hPadding = current.hPadding,
@@ -1683,7 +1681,7 @@ modules.define('fancybox', ['jquery'], function(provide, $) {
             closeClick : true,      // if true, fancyBox will be closed when user clicks on the overlay
             speedOut   : 200,       // duration of fadeOut animation
             showEarly  : true,      // indicates if should be opened immediately or wait until the content is ready
-            css        : { },        // custom CSS properties
+            css        : {},        // custom CSS properties
             locked     : !isTouch,  // if true, the content will be locked into overlay
             fixed      : true       // if false, the overlay CSS position property will not be set to "fixed"
         },
@@ -1694,7 +1692,7 @@ modules.define('fancybox', ['jquery'], function(provide, $) {
 
         // Public methods
         create : function(opts) {
-            opts = $.extend({ }, this.defaults, opts);
+            opts = $.extend({}, this.defaults, opts);
 
             if(this.overlay) {
                 this.close();
@@ -1713,7 +1711,7 @@ modules.define('fancybox', ['jquery'], function(provide, $) {
         open : function(opts) {
             var that = this;
 
-            opts = $.extend({ }, this.defaults, opts);
+            opts = $.extend({}, this.defaults, opts);
 
             if(this.overlay) {
                 this.overlay.unbind('.overlay').width('auto').height('auto');
@@ -1947,7 +1945,7 @@ modules.define('fancybox', ['jquery'], function(provide, $) {
                 }
             };
 
-        options = options || { };
+        options = options || {};
         index   = options.index || 0;
 
         if(!selector || options.live === false) {
@@ -2008,6 +2006,6 @@ modules.define('fancybox', ['jquery'], function(provide, $) {
         $('<style type=\'text/css\'>.fancybox-margin{ margin-right :' + (w2 - w1) + 'px; }</style>').appendTo('head');
     });
 
-provide($);
+provide(F);
 
  });
