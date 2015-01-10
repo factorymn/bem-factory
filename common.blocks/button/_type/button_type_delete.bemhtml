@@ -1,0 +1,28 @@
+block('button').mod('type', 'delete')(
+    def()(function() {
+        applyCtx({
+            tag : 'form',
+            attrs : {
+                method : 'post',
+                action : this.ctx.action,
+                enctype : this.ctx.enctype,
+                style : 'display: inline-block;'
+            },
+            content : [
+                {
+                    tag : 'input',
+                    attrs : { type : 'hidden', name : '_method', value : 'delete' }
+                },
+                (!!this.ctx.token) && {
+                    tag : 'input',
+                    attrs : { type : 'hidden', name : 'authenticity_token', value : this.ctx.token }
+                },
+                {
+                    block : 'button',
+                    mods : this.extend(this.ctx.mods, { type : 'submit' }),
+                    text : this.ctx.text
+                }
+            ]
+        });
+    })
+);
