@@ -1,5 +1,9 @@
-block('button').mod('type', 'delete')(
+block('button').mod('method', 'delete')(
     def()(function() {
+
+        var ctx = this.ctx;
+        ctx.mods = this.extend(this.ctx.mods, { type : 'submit' });
+
         applyCtx({
             tag : 'form',
             attrs : {
@@ -17,11 +21,7 @@ block('button').mod('type', 'delete')(
                     tag : 'input',
                     attrs : { type : 'hidden', name : 'authenticity_token', value : this.ctx.token }
                 },
-                {
-                    block : 'button',
-                    mods : this.extend(this.ctx.mods, { type : 'submit' }),
-                    text : this.ctx.text
-                }
+                ctx
             ]
         });
     })
