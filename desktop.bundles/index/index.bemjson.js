@@ -8,6 +8,18 @@
     ],
     scripts : [{ elem : 'js', url : '_index.js' }],
     content : [
-        'bem factory'
+        'bem factory',
+        {
+            block : 'button',
+            mods : { method : 'put' },
+            text : 'icpn',
+            icon : 'icon'
+        },
+        {
+            block : 'button',
+            mods : { method : 'delete', theme : 'islands', size : 'l' },
+            text : 'icpn',
+            icon : { block : 'icon' }
+        }
     ]
 })
