@@ -1,1 +1,3 @@
-block('fancybox').js()(true);
+block('fancybox')(
+    js()(true)
+);
